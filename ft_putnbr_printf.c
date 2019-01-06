@@ -29,16 +29,16 @@ static void	ft_display_nb(int nb)
 	}
 }
 
-int			ft_putnbr_printf(int nb, int j)
+void			ft_putnbr_printf(int nb, t_printf using)
 {
-	j -= 2;
+	using->nbprint -= 2;
 	ft_display_nb(nb);
 	if (nb < 0)
-		j++;
+		using->nbprint++;
 	while (nb >= 10)
 	{
-		j++;
+		using->print++;
 		nb /= 10;
 	}
-	return (j);
+	using->index++;
 }

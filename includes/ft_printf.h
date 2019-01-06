@@ -16,13 +16,20 @@
 #include "libft.h"
 #include <stdarg.h>
 
-int		ft_printf(const char *str, ...);
-int		ft_printf_tab(va_list ap);
-int		ft_putchar_printf(char c, int j);
-int		ft_putchar_puissant_printf(const char *str, int j);
-int		ft_putnbr_printf(int nb, int j);
-int		ft_putnbr_base_printf(int nb, int base, int j);
-int		ft_putnbr_baseG_printf(int nb, int base, int j);
-int		ft_putnbr_baseA_printf(void *p, int j);
+typedef struct	s_printf
+{
+	const char	*str;
+	int		index;
+	int		nbprint;
+}		t_printf;
+
+void		ft_printf(const char *s, ...);
+void		ft_printf_tab(va_list ap);
+void		ft_putchar_printf(char c, t_printf using);
+void		ft_putchar_puissant_printf(const char *str, t_printf using);
+void		ft_putnbr_printf(int nb, t_printf using);
+void		ft_putnbr_base_printf(int nb, int base, t_printf using);
+void		ft_putnbr_baseG_printf(int nb, int base, t_printf using);
+void		ft_putnbr_baseA_printf(void *p, t_printf using);
 
 #endif

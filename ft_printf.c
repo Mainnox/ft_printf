@@ -12,52 +12,65 @@
 
 #include "includes/ft_printf.h"
 
-static int		ft_flags(const char *str, int i, va_list ap, int j)
+static t_printf		ft_inistructprintf(const char *s)
 {
-	i++;
-	if (str[i] == 'c')
-		j += ft_putchar_printf(va_arg(ap, int), j);
-	if (str[i] == 's')
-		j += ft_putchar_puissant_printf(va_arg(ap, char*), j);
-	if (str[i] == 'd' || str[i] == 'i' || str[i] == 'u')
-		j += ft_putnbr_printf(va_arg(ap, int), j);
-	if (str[i] == 'o')
-		j += ft_putnbr_base_printf(va_arg(ap, int), 8, j);
-	if (str[i] == 'x')
-		j += ft_putnbr_base_printf(va_arg(ap, int), 16, j);
-	if (str[i] == 'X')
-		j += ft_putnbr_baseG_printf(va_arg(ap, int), 16, j);
-	if (str[i] == 'p')
-		j += ft_putnbr_baseA_printf(va_arg(ap, void*), j);
-	return (j);
+	t_printf using;
+
+	if (!(using = (t_printf)malloc(sizeof(t_printf))))
+		return (NULL);
+	using->index = 0;
+	using->nbprint = 0;
+	using->using->str = s;
+	return (using);
 }
 
-int			ft_printf(const char *str, ...)
+static void		ft_flags(t_printf using, va_list ap)
 {
-	int i;
-	va_list ap;
-	int j;
+	using->index++;
+	if (using->str[using->index] == 'c')
+	 	ft_putchar_printf(va_arg(ap, int), using);
+	if (using->str[using->index] == 's')
+		ft_putchar_puissant_printf(va_arg(ap, char*), using);
+	if (using->str[i] == 'd' || using->str[i] == 'i' || using->str[i] == 'u')
+		ft_putnbr_printf(va_arg(ap, int), using);
+	if (using->str[i] == 'o')
+		ft_putnbr_base_printf(va_arg(ap, int), 8, using);
+	if (using->str[i] == 'x')
+		ft_putnbr_base_printf(va_arg(ap, int), 16, using);
+	if (using->str[i] == 'X')
+		ft_putnbr_baseG_printf(va_arg(ap, int), 16, using);
+	if (using->str[i] == 'p')
+		ft_putnbr_baseA_printf(va_arg(ap, void*), using);
+//	if (using->str[i] == 'h')
+//		j += ft_checkh_printf(using->str, i, ap, j);
+//	if (using->str[i] == 'l')
+//		j += ft_checkl_printf(using->str, i, ap, j);
+	return (using);
+}
 
-	va_start(ap, str);
-	i = 0;
-	j = 0;
-	while (str[i])
+int			ft_printf(const char *s, ...)
+{
+	va_list		ap;
+	t_printf	using;
+
+	using = ft_inistructprintf(s);
+	va_start(ap, using->str);
+	while (using->str[using->index])
 	{
-		if (str[i] == '\\')
+		if (using->str[using->index] == '\\')
 		{
-			ft_putchar(str[i + 1]);
-			i += 2;
+			ft_putchar(using->str[using->index + 1]);
 			continue ;
 		}
-		if (str[i] == '%')
+		if (using->str[i] == '%')
 		{
-			j = ft_flags(str, i, ap, j);
-			i += 2;
+			ft_flags(using, ap);
 			continue ;
 		}
-		ft_putchar(str[i]);
+		ft_putchar(using->str[using->index]);
 		i++;
 	}
 	va_end(ap);
-	return (j + i);
+	free(using);
+	return (using->nbprint + using->index);
 }

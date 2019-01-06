@@ -42,16 +42,16 @@ static void		ft_display_nb(int nb, int base)
 	ft_putchar(ba[nb % base]);
 }
 
-int				ft_putnbr_baseG_printf(int nb, int base, int j)
+void				ft_putnbr_baseG_printf(int nb, int base, t_print using)
 {
-	j -= 2;
+	using->nbprint -= 2;
 	ft_display_nb(nb, base);
 	if (nb < 0)
-		j++;
+		using->nbprint++;
 	while (nb <= base)
 	{
-		j++;
+		using->nbprint++;
 		nb /= base;
 	}
-	return (j);
+	using->index++;
 }

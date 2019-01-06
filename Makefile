@@ -97,7 +97,7 @@ OBJ = $(SRC:%.c=%.o)
 all: $(NAME)
 
 $(NAME):
-	@gcc -Wall -Werror -Wextra -I $(INCLUDES) -c $(SRC)
+	@gcc -I $(INCLUDES) -c $(SRC)
 	@ar rc $(NAME) $(OBJ)
 	@ranlib $(NAME)
 

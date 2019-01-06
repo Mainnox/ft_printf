@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/libft.h"
+#include "includes/ft_printf.h"
 
 static void		ft_display_adress(unsigned int nb)
 {
@@ -38,7 +38,7 @@ static void		ft_display_adress(unsigned int nb)
 	ft_putchar(ba[nb % 16]);
 }
 
-int				ft_putnbr_baseA_printf(void *p, int j)
+void				ft_putnbr_baseA_printf(void *p, t_printf using)
 {
 	unsigned int nb;
 
@@ -46,8 +46,8 @@ int				ft_putnbr_baseA_printf(void *p, int j)
 	ft_display_adress(nb);
 	while (nb >= 16)
 	{
-		j++;
+		using->nbprint++;
 		nb /= 16;
 	}
-	return (j);
+	using->index++;
 }

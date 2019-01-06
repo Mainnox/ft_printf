@@ -12,9 +12,9 @@
 
 #include "includes/ft_printf.h"
 
-int			ft_putchar_printf(char c, int j)
+void			ft_putchar_printf(char c, t_printf using)
 {
-	j -= 1;
+	using->nbprint -= 1;
 	write(1, &c, 1);
-	return (j);
+	using->index ++;
 }

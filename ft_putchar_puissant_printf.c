@@ -12,9 +12,9 @@
 
 #include "includes/ft_printf.h"
 
-int			ft_putchar_puissant_printf(const char *str, int j)
+void			ft_putchar_puissant_printf(const char *str, t_printf using)
 {
-	j += ft_strlen(str) - 2;
-	write(1, str, ft_strlen(str));
-	return (j);
+	using->nbprint += ft_strlen(using->str) - 2;
+	write(1, str, ft_strlen(using->str));
+	using->index ++;
 }

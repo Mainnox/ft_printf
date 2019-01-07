@@ -1,20 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_puissant.c                              :+:      :+:    :+:   */
+/*   ft_nbrlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/13 17:24:38 by akremer           #+#    #+#             */
-/*   Updated: 2019/01/07 12:37:22 by akremer          ###   ########.fr       */
+/*   Created: 2019/01/07 17:29:53 by akremer           #+#    #+#             */
+/*   Updated: 2019/01/07 17:31:42 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/ft_printf.h"
+#include "includes/libft.h"
 
-void			ft_putchar_puissant_printf(const char *str, t_printf *using)
+int		ft_nbrlen(int n)
 {
-	using->nbprint += ft_strlen(using->str) - 2;
-	write(1, str, ft_strlen(str));
-	using->index++;
+	int i;
+
+	i = 0;
+	if (n < 0)
+	{
+		i++;
+		n = -n;
+	}
+	while (n > 10)
+	{
+		n = n / 10;
+		i++;
+	}
+	return (i + 1);
 }

@@ -6,13 +6,13 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/04 11:50:30 by akremer           #+#    #+#             */
-/*   Updated: 2019/01/04 13:39:37 by akremer          ###   ########.fr       */
+/*   Updated: 2019/01/07 10:59:25 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/ft_printf.h"
 
-void			ft_putchar_printf(char c, t_printf using)
+void			ft_putchar_printf(char c, t_printf *using)
 {
 	using->nbprint -= 1;
 	write(1, &c, 1);

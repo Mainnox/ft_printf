@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_base_printf.c                            :+:      :+:    :+:   */
+/*   ft_putlonglong_base_printf.c                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/04 12:37:55 by akremer           #+#    #+#             */
-/*   Updated: 2019/01/07 11:00:09 by akremer          ###   ########.fr       */
+/*   Created: 2019/01/07 14:14:51 by akremer           #+#    #+#             */
+/*   Updated: 2019/01/07 14:32:55 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/ft_printf.h"
 
-static void		ft_display_nbase(int nb, int base)
+static void		ft_display_nbase(long long nb, int base)
 {
 	char ba[16];
 
@@ -42,7 +42,7 @@ static void		ft_display_nbase(int nb, int base)
 	ft_putchar(ba[nb % base]);
 }
 
-void				ft_putnbr_base_printf(int nb, int base, t_printf *using)
+void				ft_putlonglong_base_printf(long long nb, int base, t_printf *using)
 {
 	using->nbprint -= 2;
 	ft_display_nbase(nb, base);

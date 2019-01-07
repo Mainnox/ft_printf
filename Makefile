@@ -6,7 +6,7 @@
 #    By: akremer <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 17:38:05 by akremer           #+#    #+#              #
-#    Updated: 2019/01/04 13:41:13 by akremer          ###   ########.fr        #
+#    Updated: 2019/01/07 14:30:43 by akremer          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -90,28 +90,53 @@ SRC =	ft_atoi.c				\
 		ft_putnbr_printf.c \
 		ft_putnbr_base_printf.c \
 		ft_putnbr_baseG_printf.c \
-		ft_putnbr_baseA_printf.c
+		ft_putnbr_baseA_printf.c	\
+		ft_inistruct_printf.c	\
+		ft_putlong_base_printf.c		\
+		ft_putlong_baseG_printf.c	\
+		ft_putlonglong_base_printf.c	\
+		ft_putlonglong_baseG_printf.c	\
+		ft_flags_hl_printf.c					\
+		ft_flags_printf.c						
 
 OBJ = $(SRC:%.c=%.o)
+
+FLAGS = -Wall -Werror -Wextra -I
 
 all: $(NAME)
 
 $(NAME):
-	@gcc -I $(INCLUDES) -c $(SRC)
+	@echo "Compilation:"
+	@gcc $(FLAGS) $(INCLUDES) -c $(SRC)
 	@ar rc $(NAME) $(OBJ)
 	@ranlib $(NAME)
+	@echo "Done"
 
 clean:
+	@echo "Cleaning .o:"
 	@rm -rf $(OBJ)
+	@echo "Done"
 
 fclean: clean
+	@echo "Cleaning exec:"
 	@rm -rf $(NAME)
-	@rm -rf a.out
+	@echo "Done"
 
 re: fclean all
 
 test: re
+	@echo "Compilation a.out:"
 	@gcc $(NAME) main.c
+	@echo "Running a.out"
 	@./a.out
 
-.PHONY: clean fclean all re
+debugg: re
+	@gcc -g $(NAME) main.c
+	@lldb ./a.out
+
+propre: clean
+	@echo "Tout propre:"
+	@rm -rf a.*
+	@echo "Done"
+
+.PHONY: clean fclean all re propre debugg $(NAME) test

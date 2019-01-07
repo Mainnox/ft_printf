@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/04 12:01:32 by akremer           #+#    #+#             */
-/*   Updated: 2019/01/04 13:40:05 by akremer          ###   ########.fr       */
+/*   Updated: 2019/01/07 11:06:30 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static void		ft_display_nb(int nb, int base)
 	ft_putchar(ba[nb % base]);
 }
 
-void				ft_putnbr_baseG_printf(int nb, int base, t_print using)
+void				ft_putnbr_baseG_printf(int nb, int base, t_printf *using)
 {
 	using->nbprint -= 2;
 	ft_display_nb(nb, base);

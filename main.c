@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/29 11:37:56 by akremer           #+#    #+#             */
-/*   Updated: 2019/01/17 10:40:37 by akremer          ###   ########.fr       */
+/*   Updated: 2019/01/17 11:45:02 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,15 @@ int			main()
 	   printf("Test float: %f\n", 1.00005);
 	ft_printf("Le faux:\n");
 	ft_printf("Test float: %f\n", 1.00005);
+	ft_printf("\nTest pourcent pourcent:\n");
+	ft_printf("Le vrai:\n");
+	   printf("Test pourcent pourcent: %%\n");
+	ft_printf("Le faux:\n");
+	ft_printf("Test pourcent pourcent: %%\n");
+	ft_printf("\nTest #:\n");
+	ft_printf("Le vrai:\n");
+	   printf("Test #: %#o\n%#x\n%#X\n", 10, 30, 45);
+	ft_printf("Le faux:\n");
+	ft_printf("Test #: %#o\n%#x\n%#X\n", 10, 30, 45);
 	return (0);
 }

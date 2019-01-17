@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/29 11:38:33 by akremer           #+#    #+#             */
-/*   Updated: 2019/01/17 10:39:22 by akremer          ###   ########.fr       */
+/*   Updated: 2019/01/17 11:41:56 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ typedef struct	s_extra
 {
 	int 		precision;
 	char		size;
+	char		hashtag;
 }				t_extra;
 
 typedef struct	s_printf
@@ -68,5 +69,7 @@ void			ft_set_baseG_3(va_list ap, t_printf *using, int base);
 void			ft_set_baseG_4(va_list ap, t_printf *using, int base);
 void			ft_print_printf(t_printf *using, va_list ap);
 void			ft_putunsigned_printf(va_list ap, t_printf *using);
+void			ft_hashtag_printf(t_printf *using, va_list ap);
+void			ft_reset_extra_printf(t_printf *using);
 
 #endif

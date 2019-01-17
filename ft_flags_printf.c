@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/07 14:17:58 by akremer           #+#    #+#             */
-/*   Updated: 2019/01/17 08:40:41 by akremer          ###   ########.fr       */
+/*   Updated: 2019/01/17 11:43:05 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,4 +24,11 @@ void     ft_flags_printf(t_printf *using, va_list ap)
 		ft_print_printf(using, ap);
 	if (using->str[using->index] == 'h' || using->str[using->index] == 'l')
 		ft_flags_hl_printf(using, ap);
+	if (using->extra->size)
+		using->extra->size = 0;
+	if (using->str[using->index] == '%')
+		ft_putchar('%');
+	if (using->str[using->index] == '#')
+		ft_hashtag_printf(using, ap);
+	ft_reset_extra_printf(using);
 }

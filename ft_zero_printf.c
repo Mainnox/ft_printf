@@ -1,28 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_printf.c                                 :+:      :+:    :+:   */
+/*   ft_zero_printf.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/04 12:40:43 by akremer           #+#    #+#             */
-/*   Updated: 2019/01/17 13:15:59 by akremer          ###   ########.fr       */
+/*   Created: 2019/01/17 12:16:28 by akremer           #+#    #+#             */
+/*   Updated: 2019/01/17 12:26:19 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/ft_printf.h"
 
-void			ft_putnbr_printf(va_list ap, t_printf *using)
+void		ft_zero_printf(t_printf *using, va_list ap)
 {
-	if (using->extra->size == 1)
-		ft_set_signed_1(ap, using);
-	else if (using->extra->size == 2)
-		ft_set_signed_2(ap, using);
-	else if (using->extra->size == 3)
-		ft_set_signed_3(ap, using);
-	else if (using->extra->size == 4)
-		ft_set_signed_4(ap, using);
-	else
-		ft_set_signed_0(ap, using);
+	using->extra->zero = 0;
 	using->index++;
+	while (using->str[using->index] >= '0' && using->str[using->index] <= '9')
+	{
+		using->extra->zero *= 10 + using->str[using->index] - 48;
+		using->index++;
+	}
+	ft_flags_printf(using, ap);
 }

@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/07 14:17:58 by akremer           #+#    #+#             */
-/*   Updated: 2019/01/17 11:43:05 by akremer          ###   ########.fr       */
+/*   Updated: 2019/01/17 12:19:24 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void     ft_flags_printf(t_printf *using, va_list ap)
 {
 	if (using->str[using->index] == '%')
 		using->index++;
+	if (using->str[using->index] == '0')
+		ft_zero_printf(using, ap);
 	if (using->str[using->index] == 'd' || using->str[using->index] == 'i'
 			|| using->str[using->index] == 'u' || using->str[using->index] == 'c'
 			|| using->str[using->index] == 's' || using->str[using->index] == 'o'

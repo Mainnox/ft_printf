@@ -6,7 +6,7 @@
 #    By: akremer <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 17:38:05 by akremer           #+#    #+#              #
-#    Updated: 2019/01/17 11:42:39 by akremer          ###   ########.fr        #
+#    Updated: 2019/01/17 13:40:40 by akremer          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,6 +36,7 @@ SRC =	ft_atoi.c				\
 		ft_isalpha.c			\
 		ft_isdigit.c			\
 		ft_isalnum.c			\
+		ft_nbrlen_base.c		\
 		ft_isascii.c			\
 		ft_isprint.c			\
 		ft_toupper.c			\
@@ -124,7 +125,8 @@ SRC =	ft_atoi.c				\
 		ft_set_signed_3.c						\
 		ft_set_signed_4.c						\
 		ft_hashtag_printf.c						\
-		ft_reset_extra_printf.c
+		ft_reset_extra_printf.c					\
+		ft_zero_printf.c
 
 OBJ = $(SRC:%.c=%.o)
 
@@ -156,6 +158,10 @@ test: re
 	@gcc $(NAME) main.c
 	@echo "Running a.out"
 	@./a.out
+
+testvrai: re
+	gcc $(NAME) maintest.c
+	./a.out
 
 debugg: re
 	@gcc -g $(NAME) main.c

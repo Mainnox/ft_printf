@@ -1,43 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_base.c                                   :+:      :+:    :+:   */
+/*   ft_nbrlen_base.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/29 17:53:20 by akremer           #+#    #+#             */
-/*   Updated: 2019/01/17 12:24:22 by akremer          ###   ########.fr       */
+/*   Created: 2019/01/17 13:21:00 by akremer           #+#    #+#             */
+/*   Updated: 2019/01/17 13:44:57 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
 
-void		ft_putnbr_base(int nb, int base)
+int		ft_nbrlen_base(unsigned long long n, char signe, int ba)
 {
-	char ba[16];
+	int i;
+	unsigned long long base;
 
-	ba[0] = '0';
-	ba[1] = '1';
-	ba[2] = '2';
-	ba[3] = '3';
-	ba[4] = '4';
-	ba[5] = '5';
-	ba[6] = '6';
-	ba[7] = '7';
-	ba[8] = '8';
-	ba[9] = '9';
-	ba[10] = 'a';
-	ba[11] = 'b';
-	ba[12] = 'c';
-	ba[13] = 'd';
-	ba[14] = 'e';
-	ba[15] = 'f';
-	if (nb < 0)
+	base = (unsigned long long)ba;
+	i = 0;
+	if (signe == 1)
+		i++;
+	while (n > base)
 	{
-		ft_putchar('-');
-		nb = -nb;
+		n = n / base;
+		i++;
 	}
-	if (nb >= base)
-		ft_putnbr_base(nb / base, base);
-	ft_putchar(ba[nb % base]);
+	return (i + 1);
 }

@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/17 07:38:59 by akremer           #+#    #+#             */
-/*   Updated: 2019/01/17 09:48:45 by akremer          ###   ########.fr       */
+/*   Updated: 2019/01/17 13:33:26 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,15 @@ void		ft_set_unsigned_1(va_list ap, t_printf *using)
 	int nb;
 
 	nb = va_arg(ap, int);
+	if (using->extra->zero)
+	{
+		using->extra->zero -= ft_nbrlen((unsigned long long)nb, 0);
+		while (using->extra->zero < 0)
+		{
+			ft_putchar('0');
+			using->extra->zero--;
+		}
+	}
 	ft_display((unsigned char)nb, using);
 	using->nbprint += ft_nbrlen((unsigned long long)nb, 0);
 }

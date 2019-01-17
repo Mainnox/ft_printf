@@ -1,28 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_baseG_printf.c                           :+:      :+:    :+:   */
+/*   ft_set_signed_3.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/17 10:19:11 by akremer           #+#    #+#             */
-/*   Updated: 2019/01/17 10:40:09 by akremer          ###   ########.fr       */
+/*   Created: 2019/01/17 10:36:38 by akremer           #+#    #+#             */
+/*   Updated: 2019/01/17 10:36:47 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/ft_printf.h"
 
-void		ft_putnbr_baseG_printf(va_list ap, int base, t_printf *using)
+static void	ft_display(long nb)
 {
-	if (using->extra->size == 1)
-		ft_set_baseG_1(ap, using, base);
-	else if (using->extra->size == 2)
-		ft_set_baseG_2(ap, using, base);
-	else if (using->extra->size == 3)
-		ft_set_baseG_3(ap, using, base);
-	else if (using->extra->size == 4)
-		ft_set_baseG_4(ap, using, base);
-	else
-		ft_set_baseG_0(ap, using, base);
-	using->index++;
+	if (nb < 0)
+	{
+		ft_putchar('-');
+		nb = -nb;
+	}
+	if (nb >= 10)
+		ft_display(nb / 10);
+	ft_putchar(nb % 10 + 48);
+}
+
+void		ft_set_signed_3(va_list ap, t_printf *using)
+{
+	long 	nb;
+	char	signe;
+
+	signe = 0;
+	nb = va_arg(ap, long);
+	if (nb < 0)
+		signe = 1;
+	ft_display(nb);
+	using->nbprint += ft_nbrlen((unsigned long long)nb, signe);
 }

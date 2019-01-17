@@ -1,28 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_baseG_printf.c                           :+:      :+:    :+:   */
+/*   ft_set_baseG_0.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/17 10:19:11 by akremer           #+#    #+#             */
-/*   Updated: 2019/01/17 10:40:09 by akremer          ###   ########.fr       */
+/*   Created: 2019/01/17 10:36:16 by akremer           #+#    #+#             */
+/*   Updated: 2019/01/17 10:49:32 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/ft_printf.h"
 
-void		ft_putnbr_baseG_printf(va_list ap, int base, t_printf *using)
+static void	ft_display(unsigned int nb, t_printf *using, int base)
 {
-	if (using->extra->size == 1)
-		ft_set_baseG_1(ap, using, base);
-	else if (using->extra->size == 2)
-		ft_set_baseG_2(ap, using, base);
-	else if (using->extra->size == 3)
-		ft_set_baseG_3(ap, using, base);
-	else if (using->extra->size == 4)
-		ft_set_baseG_4(ap, using, base);
-	else
-		ft_set_baseG_0(ap, using, base);
-	using->index++;
+	char ba[16] = "0123456789ABCDEF";
+
+	if (nb >= (unsigned int)base)
+		ft_display(nb / base, using, base);
+	ft_putchar(ba[nb % base]);
+}
+
+void		ft_set_baseG_0(va_list ap, t_printf *using, int base)
+{
+	unsigned int nb;
+
+	nb = va_arg(ap, unsigned int);
+	ft_display(nb, using, base);
+	using->nbprint += ft_nbrlen((unsigned long long)nb, 0);
 }

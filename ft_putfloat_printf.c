@@ -5,44 +5,47 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/15 08:30:03 by akremer           #+#    #+#             */
-/*   Updated: 2019/01/22 06:49:56 by akremer          ###   ########.fr       */
+/*   Created: 2019/01/07 16:34:35 by akremer           #+#    #+#             */
+/*   Updated: 2019/01/07 17:34:41 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/ft_printf.h"
 
-void		ft_putfloat_printf(double mydouble, t_printf *using)
+static void		ft_before_dot(int d, t_printf *using)
 {
-	unsigned long long handling;
-	int signe;
-	int precision;
+	if (d >= 10)
+		ft_before_dot(d / 10, using);
+	ft_putchar(d % 10);
+}
 
-	signe = 0;
-	using->index++;
-	if (mydouble < 0)
+static void		ft_after_dot(int d, int precision, t_printf *using, int code)
+{
+	int count;
+
+	count = ft_nbrlen(d);
+	while (precision && count)
 	{
+		ft_putchar
+	}
+	ft_putchar();
+}
+
+void			ft_putfloat_printf(double f, int precision, t_printf *using)
+{
+	int d;
+
+	if (f < 0)
+	{
+		f =-f;
 		ft_putchar('-');
-		mydouble = -mydouble;
-		signe = 1;
 	}
-	handling = (unsigned long long)mydouble;
-	using->nbprint += ft_nbrlen(mydouble, signe);
-	ft_putlonglong_base(handling, 10);
-	if (using->extra->precision != -1)
-		precision = using->extra->precision;
-	else
-		precision = 6;
+	d = (int)(f / 1);
+	ft_before_dot(d);
+	while (f >= 10)
+		f /= 10;
+	while (f - (f / 1) != 0)
+		f *= 10
 	if (precision > 0)
-	{
-		ft_putchar('.');
-		while (precision > 0)
-		{
-			mydouble -= handling;
-			mydouble *= 10;
-			handling = (int)mydouble;
-			ft_putnbr((int)handling);
-			precision--;
-		}
-	}
+		ft_after_dot(f, precision);
 }

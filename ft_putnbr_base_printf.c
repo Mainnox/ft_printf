@@ -6,30 +6,52 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/04 12:37:55 by akremer           #+#    #+#             */
-/*   Updated: 2019/01/17 11:32:47 by akremer          ###   ########.fr       */
+/*   Updated: 2019/01/07 11:00:09 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/ft_printf.h"
 
-void				ft_putnbr_base_printf(va_list ap, int base, t_printf *using)
+static void		ft_display_nbase(int nb, int base)
 {
-	if (using->extra->hashtag == 1)
+	char ba[16];
+
+	ba[0] = '0';
+	ba[1] = '1';
+	ba[2] = '2';
+	ba[3] = '3';
+	ba[4] = '4';
+	ba[5] = '5';
+	ba[6] = '6';
+	ba[7] = '7';
+	ba[8] = '8';
+	ba[9] = '9';
+	ba[10] = 'a';
+	ba[11] = 'b';
+	ba[12] = 'c';
+	ba[13] = 'd';
+	ba[14] = 'e';
+	ba[15] = 'f';
+	if (nb < 0)
 	{
-		if (base != 16)
-			ft_putchar('0');
-		else
-			ft_putchar_puissant("0x");
+		ft_putchar('-');
+		nb = -nb;
 	}
-	if (using->extra->size == 1)
-		ft_set_base_1(ap, using, base);
-	else if (using->extra->size == 2)
-		ft_set_base_2(ap, using, base);
-	else if (using->extra->size == 3)
-		ft_set_base_3(ap, using, base);
-	else if (using->extra->size == 4)
-		ft_set_base_4(ap, using, base);
-	else
-		ft_set_base_0(ap, using, base);
+	if (nb >= base)
+		ft_display_nbase(nb / base, base);
+	ft_putchar(ba[nb % base]);
+}
+
+void				ft_putnbr_base_printf(int nb, int base, t_printf *using)
+{
+	using->nbprint -= 2;
+	ft_display_nbase(nb, base);
+	if (nb < 0)
+		using->nbprint++;
+	while (nb / base <= 0)
+	{
+		using->nbprint++;
+		nb /= base;
+	}
 	using->index++;
 }

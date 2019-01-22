@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/17 09:57:30 by akremer           #+#    #+#             */
-/*   Updated: 2019/01/17 13:35:14 by akremer          ###   ########.fr       */
+/*   Updated: 2019/01/22 11:24:38 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,15 +26,17 @@ void		ft_set_base_1(va_list ap, t_printf *using, int base)
 	unsigned char nb;
 
 	nb = va_arg(ap, int);
-	ft_display(nb, using, base);
 	if (using->extra->zero)
 	{
 		using->extra->zero -= ft_nbrlen_base((unsigned long long)nb, 0, base);
-		while (using->extra->zero < 0)
+		while (using->extra->zero > 0)
 		{
 			ft_putchar('0');
 			using->extra->zero--;
 		}
 	}
+	ft_display(nb, using, base);
+	if (using->extra->moins)
+		ft_set_moins_printf(using, (unsigned long long)nb, 0, base);
 	using->nbprint += ft_nbrlen((unsigned long long)nb, 0);
 }

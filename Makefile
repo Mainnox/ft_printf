@@ -6,7 +6,7 @@
 #    By: akremer <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 17:38:05 by akremer           #+#    #+#              #
-#    Updated: 2019/01/17 13:40:40 by akremer          ###   ########.fr        #
+#    Updated: 2019/01/22 10:30:50 by akremer          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -126,7 +126,11 @@ SRC =	ft_atoi.c				\
 		ft_set_signed_4.c						\
 		ft_hashtag_printf.c						\
 		ft_reset_extra_printf.c					\
-		ft_zero_printf.c
+		ft_zero_printf.c						\
+		ft_moins_printf.c						\
+		ft_set_moins_printf.c					\
+		ft_plus_printf.c						\
+		ft_blank_printf.c
 
 OBJ = $(SRC:%.c=%.o)
 
@@ -172,4 +176,4 @@ propre: clean
 	@rm -rf a.*
 	@echo "Done"
 
-.PHONY: clean fclean all re propre debugg $(NAME) test
+.PHONY: clean fclean all re propre debugg $(NAME) test testvrai

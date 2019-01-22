@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/29 11:37:56 by akremer           #+#    #+#             */
-/*   Updated: 2019/01/17 11:48:20 by akremer          ###   ########.fr       */
+/*   Updated: 2019/01/22 11:54:19 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,5 +58,17 @@ int			main()
 	   printf("Test #: %#o\n%#x\n%#X\n", 10, 30, 45);
 	ft_printf("Le faux:\n");
 	ft_printf("Test #: %#o\n%#x\n%#X\n", 10, 30, 45);
+	ft_printf("\nTest 0:\nLe vrai:\n");
+	   printf("Test 04: %04d\n", a);
+	ft_printf("Le faux\n");
+	ft_printf("Test 04: %04d\n", a);
+	ft_printf("\nTest -:\nLe vrai:\n");
+	   printf("Test -4X: %-4X s\n", a);
+	ft_printf("Le faux:\n");
+	ft_printf("Test -4X: %-4X s\n", a);
+	printf("%+d\n", 11);
+	ft_printf("%+d\n", 11);
+	printf("% d\n", 11);
+	ft_printf("% d\n", 11);
 	return (0);
 }

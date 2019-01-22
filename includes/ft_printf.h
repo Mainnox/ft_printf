@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/29 11:38:33 by akremer           #+#    #+#             */
-/*   Updated: 2019/01/17 13:44:55 by akremer          ###   ########.fr       */
+/*   Updated: 2019/01/22 11:40:17 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,16 @@
 #include "libft.h"
 #include <stdarg.h>
 
-typedef struct	s_more
+typedef struct	s_extra
 {
 	char		plus;
 	int			moins;
-}				t_more;
-
-typedef struct	s_extra
-{
+	char		blank;
 	int 		precision;
 	char		size;
 	char		hashtag;
 	int			zero;
-	t_more		*more;
+	char		done;
 }				t_extra;
 
 typedef struct	s_printf
@@ -80,5 +77,9 @@ void			ft_putunsigned_printf(va_list ap, t_printf *using);
 void			ft_hashtag_printf(t_printf *using, va_list ap);
 void			ft_reset_extra_printf(t_printf *using);
 void			ft_zero_printf(t_printf *using, va_list ap);
+void			ft_moins_printf(t_printf *using, va_list ap);
+void			ft_set_moins_printf(t_printf *using,unsigned long long nb, int signe, int base);
+void			ft_plus_printf(t_printf *using, va_list ap);
+void			ft_blank_printf(t_printf *using, va_list ap);
 
 #endif

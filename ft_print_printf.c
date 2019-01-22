@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/17 07:00:31 by akremer           #+#    #+#             */
-/*   Updated: 2019/01/17 10:26:22 by akremer          ###   ########.fr       */
+/*   Updated: 2019/01/22 11:32:32 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,6 @@ void		ft_print_printf(t_printf *using, va_list ap)
 		ft_putnbr_baseA_printf(va_arg(ap, void*), using);
 	if (using->str[using->index] == 'f')
 		ft_putfloat_printf(va_arg(ap, double), using);
+	using->extra->done = 1;
 }
 

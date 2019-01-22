@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/15 08:30:03 by akremer           #+#    #+#             */
-/*   Updated: 2019/01/17 08:47:52 by akremer          ###   ########.fr       */
+/*   Updated: 2019/01/22 06:49:56 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void		ft_putfloat_printf(double mydouble, t_printf *using)
 	handling = (unsigned long long)mydouble;
 	using->nbprint += ft_nbrlen(mydouble, signe);
 	ft_putlonglong_base(handling, 10);
-	if (using->extra->precision)
+	if (using->extra->precision != -1)
 		precision = using->extra->precision;
 	else
 		precision = 6;

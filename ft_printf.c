@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/29 12:45:04 by akremer           #+#    #+#             */
-/*   Updated: 2019/01/07 17:35:20 by akremer          ###   ########.fr       */
+/*   Updated: 2019/01/22 14:42:52 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ int			ft_printf(const char *s, ...)
 		}
 		if (using->str[using->index] == '%')
 		{
+			using->index++;
 			ft_flags_printf(using, ap);
 			continue ;
 		}

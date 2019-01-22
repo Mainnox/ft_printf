@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 10:32:32 by akremer           #+#    #+#             */
-/*   Updated: 2019/01/07 17:31:37 by akremer          ###   ########.fr       */
+/*   Updated: 2019/01/22 14:39:40 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ typedef struct		s_list
 	struct s_list	*next;
 }					t_list;
 
-int					ft_nbrlen(int n);
+int					ft_nbrlen_base(unsigned long long n, char signe, int ba);
+int					ft_nbrlen(unsigned long long nb, int signe);
 void				ft_putnbr_baseG(int nb, int size);
 void				ft_putnbr_baseA(unsigned int nb);
 void				ft_putnbr_base(int nb, int size);

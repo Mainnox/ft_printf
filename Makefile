@@ -6,7 +6,7 @@
 #    By: akremer <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 17:38:05 by akremer           #+#    #+#              #
-#    Updated: 2019/01/07 14:30:43 by akremer          ###   ########.fr        #
+#    Updated: 2019/01/22 14:42:03 by akremer          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -97,7 +97,36 @@ SRC =	ft_atoi.c				\
 		ft_putlonglong_base_printf.c	\
 		ft_putlonglong_baseG_printf.c	\
 		ft_flags_hl_printf.c					\
-		ft_flags_printf.c						
+		ft_flags_printf.c						\
+		ft_blank_printf.c						\
+		ft_hashtag_printf.c						\
+		ft_moins_printf.c						\
+		ft_plus_printf.c						\
+		ft_putfloat_printf.c					\
+		ft_reset_extra_printf.c					\
+		ft_set_moins_printf.c					\
+		ft_zero_printf.c						\
+		ft_nbrlen_base.c						\
+		ft_set_baseG_0.c						\
+		ft_set_baseG_1.c						\
+		ft_set_baseG_2.c						\
+		ft_set_baseG_3.c						\
+		ft_set_baseG_4.c						\
+		ft_set_base_0.c							\
+		ft_set_base_1.c							\
+		ft_set_base_2.c							\
+		ft_set_base_3.c							\
+		ft_set_base_4.c							\
+		ft_set_signed_0.c						\
+		ft_set_signed_1.c						\
+		ft_set_signed_2.c						\
+		ft_set_signed_3.c						\
+		ft_set_signed_4.c						\
+		ft_set_unsigned_0.c						\
+		ft_set_unsigned_1.c						\
+		ft_set_unsigned_2.c						\
+		ft_set_unsigned_3.c						\
+		ft_set_unsigned_4.c						
 
 OBJ = $(SRC:%.c=%.o)
 

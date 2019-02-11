@@ -23,10 +23,7 @@ typedef struct		s_list
 }					t_list;
 
 int					ft_nbrlen_base(unsigned long long n, char signe, int ba);
-int					ft_nbrlen(unsigned long long nb, int signe);
-void				ft_putnbr_baseG(int nb, int size);
-void				ft_putnbr_baseA(unsigned int nb);
-void				ft_putnbr_base(int nb, int size);
+int					ft_nbrlen(unsigned long long n, char signe);
 void				*ft_realloc(void *ptr, size_t size);
 int					ft_strclen(const char *str, char c);
 char				*ft_strcsub(const char *src, char c);

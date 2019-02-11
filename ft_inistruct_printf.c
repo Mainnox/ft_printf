@@ -18,6 +18,8 @@ t_printf		*ft_inistruct_printf(const char *s)
 
 	if (!(using = (t_printf*)malloc(sizeof(t_printf))))
 		return (NULL);
+	if (!(using->extra = (t_extra*)malloc(sizeof(t_extra))))
+		return (NULL);
 	using->index = 0;
 	using->nbprint = 0;
 	using->str = s;
@@ -27,5 +29,7 @@ t_printf		*ft_inistruct_printf(const char *s)
 	using->extra->plus = 0;
 	using->extra->size = 0;
 	using->extra->zero = 0;
+	using->extra->hashtag = 0;
+	using->extra->blank = 0;
 	return (using);
 }

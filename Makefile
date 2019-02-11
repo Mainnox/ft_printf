@@ -82,12 +82,8 @@ SRC =	ft_atoi.c				\
 		ft_realloc.c			\
 		get_next_line.c			\
 		ft_printf.c				\
-		ft_putnbr_baseG.c		\
-		ft_putnbr_baseA.c		\
-		ft_putnbr_base.c		\
 		ft_putchar_printf.c	\
 		ft_putchar_puissant_printf.c \
-		ft_putnbr_printf.c \
 		ft_putnbr_base_printf.c \
 		ft_putnbr_baseG_printf.c \
 		ft_putnbr_baseA_printf.c	\
@@ -106,6 +102,7 @@ SRC =	ft_atoi.c				\
 		ft_reset_extra_printf.c					\
 		ft_set_moins_printf.c					\
 		ft_zero_printf.c						\
+		ft_nbrlen.c 							\
 		ft_nbrlen_base.c						\
 		ft_set_baseG_0.c						\
 		ft_set_baseG_1.c						\
@@ -126,7 +123,9 @@ SRC =	ft_atoi.c				\
 		ft_set_unsigned_1.c						\
 		ft_set_unsigned_2.c						\
 		ft_set_unsigned_3.c						\
-		ft_set_unsigned_4.c						
+		ft_set_unsigned_4.c						\
+		ft_print_printf.c 						\
+		ft_putunsigned_printf.c
 
 OBJ = $(SRC:%.c=%.o)
 
@@ -136,7 +135,7 @@ all: $(NAME)
 
 $(NAME):
 	@echo "Compilation:"
-	@gcc $(FLAGS) $(INCLUDES) -c $(SRC)
+	@gcc -I $(INCLUDES) -c $(SRC)
 	@ar rc $(NAME) $(OBJ)
 	@ranlib $(NAME)
 	@echo "Done"

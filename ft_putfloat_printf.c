@@ -23,7 +23,7 @@ void			ft_putfloat_printf(double f, t_printf *using)
 		ft_putchar('-');
 	}
 	nb = (unsigned long long)f;
-	ft_putnbr_printf((int)nb, using);
+	ft_putnbr((int)nb);
 	if (using->extra->precision == -1)
 		precision = 6;
 	else

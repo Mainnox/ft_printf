@@ -37,12 +37,10 @@ typedef struct	s_printf
 }				t_printf;
 
 int				ft_printf(const char *s, ...);
-void			ft_printf_tab(va_list ap);
 void			ft_putchar_printf(char c, t_printf *using);
 void			ft_putchar_puissant_printf(const char *str, t_printf *using);
-void			ft_putnbr_printf(int nb, t_printf *using);
-void			ft_putnbr_base_printf(int nb, int base, t_printf *using);
-void			ft_putnbr_baseG_printf(int nb, int base, t_printf *using);
+void			ft_putnbr_base_printf(va_list ap, int base, t_printf *using);
+void			ft_putnbr_baseG_printf(va_list ap, int base, t_printf *using);
 void			ft_putnbr_baseA_printf(void *p, t_printf *using);
 t_printf		*ft_inistruct_printf(const char *s);
 void			ft_flags_printf(t_printf *using, va_list ap);
@@ -73,5 +71,7 @@ void			ft_set_unsigned_2(va_list ap, t_printf *using);
 void			ft_set_unsigned_3(va_list ap, t_printf *using);
 void			ft_set_unsigned_4(va_list ap, t_printf *using);
 void			ft_set_moins_printf(t_printf *using, unsigned long long nb, int signe, int base);
+void			ft_print_printf(va_list ap, t_printf *using);
+void			ft_putunsigned_printf(va_list ap, t_printf *using);
 
 #endif
